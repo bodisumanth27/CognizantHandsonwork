@@ -1,0 +1,11 @@
+CREATE OR REPLACE FUNCTION CalculateAge(
+    p_dob DATE
+)
+RETURNS INT
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN EXTRACT(YEAR FROM AGE(CURRENT_DATE, p_dob));
+END;
+$$;
+SELECT CalculateAge('2000-01-01');

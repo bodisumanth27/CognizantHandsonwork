@@ -1,0 +1,18 @@
+package com.cognizant.ecommerce.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+import com.cognizant.ecommerce.entity.Product;
+
+public interface ProductRepository
+        extends JpaRepository<Product, Integer>,
+                JpaSpecificationExecutor<Product> {
+
+    List<Product> findByCategoryId(Integer categoryId);
+
+    List<Product> findByNameContainingIgnoreCase(String name);
+
+}
